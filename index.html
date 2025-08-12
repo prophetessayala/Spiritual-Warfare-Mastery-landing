@@ -251,15 +251,22 @@
             text-align: center;
         }
 
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
         .pricing-card {
-            max-width: 400px;
-            margin: 50px auto;
             background: linear-gradient(145deg, #2c3e50, #34495e);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             position: relative;
             overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
         .pricing-card::before {
@@ -278,14 +285,97 @@
             opacity: 1;
         }
 
-        .price {
-            font-size: 3rem;
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .basic-plan {
+            border: 2px solid #3498db;
+        }
+
+        .premium-plan {
+            border: 3px solid #f7931e;
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .vip-plan {
+            border: 2px solid #9b59b6;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: bold;
-            margin: 20px 0;
-            background: linear-gradient(45deg, #ffd700, #fff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .plan-header {
+            margin-bottom: 30px;
+        }
+
+        .plan-header h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-subtitle {
+            color: #bdc3c7;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-vip {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-vip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(155, 89, 182, 0.4);
         }
 
         .footer {
@@ -472,24 +562,52 @@
 
     <section class="pricing-section" id="pricing">
         <div class="container">
-            <h2 class="section-title">Your Spiritual Transformation Awaits</h2>
+            <h2 class="section-title">Choose Your Payment Option</h2>
             
-            <div class="pricing-card">
-                <!-- EDIT THIS: Change course package name -->
-                <h3>Complete Mastery Course</h3>
-                <!-- EDIT THIS: Change price -->
-                <div class="price">$497</div>
-                <ul style="text-align: left; margin: 30px 0;">
-                    <!-- EDIT THESE: Change features list -->
-                    <li>✓ Warfare Tactics to Walk Through Doors</li>
-                    <li>✓ Video Training Sessions</li>
-                    <li>✓ Practical Exercises & Assignments</li>
-                    <li>✓ Prayer Guides & Resources</li>
-                    <li>✓ 1 Year Access to All Completed Courses</li>
-                    <li>✓ All Sales Final Due to Intellectual Property</li>
-                </ul>
-                <!-- STRIPE PAYMENT LINK ADDED -->
-                <a href="https://buy.stripe.com/14A14ocUea1efDubVZ9MY00" class="cta-primary" style="display: block; margin-top: 30px;" target="_blank" rel="noopener">Enroll Now</a>
+            <div class="pricing-plans">
+                <!-- FULL PAYMENT PLAN -->
+                <div class="pricing-card premium-plan">
+                    <div class="popular-badge">BEST VALUE</div>
+                    <div class="plan-header">
+                        <h3>Full Payment</h3>
+                        <div class="price">$497</div>
+                        <p class="plan-subtitle">Pay Once - Save Money</p>
+                    </div>
+                    <ul style="text-align: left; margin: 30px 0;">
+                        <li>✓ All 11 Warfare Tactics to Walk Through Doors</li>
+                        <li>✓ Video Training Sessions</li>
+                        <li>✓ Practical Exercises & Assignments</li>
+                        <li>✓ Prayer Guides & Resources</li>
+                        <li>✓ Immediate Full Access</li>
+                        <li>✓ 1 Year Access to All Completed Courses</li>
+                        <li>✓ All Sales Final Due to Intellectual Property</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/14A14ocUea1efDubVZ9MY00" class="cta-primary" style="display: block; margin-top: 30px;" target="_blank" rel="noopener">Pay in Full - $497</a>
+                </div>
+
+                <!-- PAYMENT PLAN -->
+                <div class="pricing-card payment-plan">
+                    <div class="plan-header">
+                        <h3>Payment Plan</h3>
+                        <div class="price">$166 <span style="font-size: 1.2rem; color: #bdc3c7;">x3</span></div>
+                        <p class="plan-subtitle">Every 2 Weeks - Total $498</p>
+                    </div>
+                    <ul style="text-align: left; margin: 30px 0;">
+                        <li>✓ All 11 Warfare Tactics to Walk Through Doors</li>
+                        <li>✓ Video Training Sessions</li>
+                        <li>✓ Practical Exercises & Assignments</li>
+                        <li>✓ Prayer Guides & Resources</li>
+                        <li>✓ Immediate Access After First Payment</li>
+                        <li>✓ 1 Year Access to All Completed Courses</li>
+                        <li>✓ Auto-billing Every 2 Weeks</li>
+                        <li>✓ All Sales Final Due to Intellectual Property</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/eVqdRa3jEb5icri9NR9MY01" class="cta-secondary" style="display: block; margin-top: 30px;" target="_blank" rel="noopener">Start Payment Plan</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: #bdc3c7;">
+                <p><strong>Payment Plan Details:</strong> 3 automatic payments of $166 charged every 2 weeks until $498 total is paid</p>
             </div>
         </div>
     </section>
